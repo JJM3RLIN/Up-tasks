@@ -1,0 +1,18 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+.reestablecer{
+    .uptask{
+        @include m.fondo-texto(v.$azul);
+    }
+    button{
+        @include m.boton(v.$azul, v.$blanco);
+    }
+    .acciones{
+        a{
+            color: v.$azul;
+            &:hover{
+                color: darken($color: v.$azul, $amount: 50%);
+               }
+        }
+    }
+}

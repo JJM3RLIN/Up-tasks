@@ -1,0 +1,94 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.sidebar{
+  background-color: v.$indigo;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity .5s;
+  &.mostrar{
+    padding: 2rem;
+    opacity: 1;
+    height: 100%;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0 0 0 / .90);
+    @include m.tablet{
+      display: none;
+    }
+  }
+
+  //Para evitar que se vea feo cuando se quita mostrar
+  &.ocultar{
+    opacity: 0;
+  }
+  @include m.tablet{
+    display: block;
+    opacity: 1;
+    height: 100%;
+    padding: 2rem;
+  }
+  .contenedor-sidebar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2{
+      color: v.$blanco;
+      margin: 0;
+      text-align: center;
+    }
+    .cerrar-menu{
+         display: flex;
+         justify-content: center;
+         @include m.tablet{
+          display:none;
+         }
+         p{
+          color: v.$blanco;
+          font-weight: bold;
+          font-size: 4rem;
+          margin: 0;
+          &:hover{
+            cursor: pointer;
+          }
+         }
+    }
+  }
+  .sidebar-nav{
+    margin-top: 5rem;
+    a{
+        color: v.$blanco;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 2rem;
+        text-align: center;
+        font-size: 2.4rem;
+        padding: .7rem;
+        transition: background-color  300ms;
+        &:hover, &.activo{
+            background-color: darken($color: v.$indigo, $amount: 20%);
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+        }
+        @include m.tablet{
+          font-size: 1.8rem;
+          margin-bottom: 1.5rem;
+          text-align: left;
+        }
+    }
+  }
+  .cerrar-sesion-mobile{ 
+    margin-top: 10rem;
+    .cerrar-sesion{
+      @include m.boton(v.$indigo, v.$blanco)
+    }
+    @include m.tablet{
+      display:none;
+    }
+  }
+}

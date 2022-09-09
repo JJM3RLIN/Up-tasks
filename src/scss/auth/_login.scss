@@ -1,0 +1,19 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.login{
+    .uptask{
+        @include m.fondo-texto(v.$cyan);
+    }
+    button{
+        @include m.boton(v.$cyan, v.$blanco);
+    }
+    .acciones{
+        a{
+            color: v.$cyan;
+            &:hover{
+                color: darken($color: v.$cyan, $amount: 50%);
+               }
+        }
+    }
+}

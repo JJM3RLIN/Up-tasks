@@ -1,0 +1,18 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+.olvide{
+    .uptask{
+        @include m.fondo-texto(v.$rosa);
+    }
+    button{
+        @include m.boton(v.$rosa, v.$blanco);
+    }
+    .acciones{
+        a{
+            color: v.$rosa;
+            &:hover{
+                color: darken($color: v.$rosa, $amount: 50%);
+               }
+        }
+    }
+}

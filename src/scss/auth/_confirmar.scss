@@ -1,0 +1,16 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+.confirmar{
+    .uptask{
+        @include m.fondo-texto(v.$indigo);
+    }
+    .acciones{
+        justify-content: center;
+        a{
+            color: v.$indigo;
+            &:hover{
+                color: darken($color: v.$indigo, $amount: 50%);
+               }
+        }
+    }
+}
